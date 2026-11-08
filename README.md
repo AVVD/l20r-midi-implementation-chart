@@ -3,7 +3,7 @@ Reverse-engineered, unofficial MIDI implementation chart for the Zoom Livetrak L
 
 Unofficial, independently reverse-engineered MIDI implementation chart. Not affiliated with or endorsed by Zoom Corporation.
 
-Documentation © 2026 AVVD.
+Documentation © 2026 Axel Delahaye.
 Licensed under the Creative Commons Attribution 4.0 International License.
 https://creativecommons.org/licenses/by/4.0/
 
