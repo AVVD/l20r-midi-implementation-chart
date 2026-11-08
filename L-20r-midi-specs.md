@@ -1,160 +1,146 @@
 L-20 MIDI implementation table
 ===
-WIP
-
 ## MIDI CC
-||Dec|Hex|Channel|Value|Name|Comment|
-|-|-|-|-|-|-|-|
-|To-validate|1|0x01|\*|x|COMP|?|
-|To-validate|3|0x03|\*|x|USB1-2, USB3-4|?|
-||4|0x04|\*|0,2|USB1-2, USB3-4|?|
-|To-validate|8|0x08|\*|x|Channel selection buttons|?|
-|To-validate|-|-|-|-|02 REC
-|To-validate|-|-|-|-|01 PLAY
-|To-validate|-|-|-|-|00 Disabled
-||8|0x08|\*|x|REC/PLAY||
-||9|0x09|1,3|x|REC/PLAY 17\_18,19\_20||
-||10|0x0A|\*|x|PHASE
-||-|-|-|-|01 Inverted
-||-|-|-|-|00 Normal
-||12|0x0C|\*|00-??|PAN
-||12|0x0C|\*|00-??|PAN
-||14|0x0E|\*|01|EQ ON/OFF
-||14|0x0E|\*|01|EQ ON/OFF
-||20|0x14|\*|00-??|EQ HIGH
-||20|0x14|\*|00-??|EQ HIGH
-||24|0x18|\*|00-??|EQ MID FREQ
-||24|0x18|\*|00-??|EQ MID FREQ
-||26|0x1A|\*|00-??|EQ MID
-||26|0x1A|\*|00-??|EQ MID
-||44|0x2C|\*|00-??|EQ LOW
-||44|0x2C|\*|00-??|EQ LOW
-||46|0x2E|\*|00-??|EQ LOCUT
-||46|0x2E|\*|00-??|EQ LOCUT
-||48|0x30|\*|x|MUTE
-||-|-|-|-|01 muted
-||-|-|-|-|00 unmuted
-||49|0x31|1,3|x|MUTE
-||50|0x32|\*|x|SOLO
-||-|-|-|-|01 soloed
-||-|-|-|-|00 unsolo
-||51|0x33|1,3|x|SOLO
-||52|0x34|\*|00-78|SEND FX1
-||53|0x35|1,3|00-78|SEND FX1
-||54|0x36|\*|00-78|SEND FX2|
-||55|0x37|1,3|00-78|SEND FX2|
-||60|0x3C|\*|00-78|FADER M
-||-|-|-|52|0
-||61|0x3D|1,3|00-78|FADER M 17\_18,19\_20
-||62|0x3E|\*|00-78|FADER A
-||64|0x40|\*|00-78|FADER B
-||66|0x42|\*|00-78|FADER C
-||68|0x44|\*|00-78|FADER D
-||70|0x46|\*|00-78|FADER E
-||72|0x48|\*|00-78|FADER F
-||78|0x4E|1|00-09|EFX1 Type
-||-|-|2|00-09|EFX2 Type
-||-|-|5|00-64|EFX1 Tone MSB
-||-|-|6|00-64|EFX1 Tone LSB
-||-|-|7|00-??|EFX2 Tone MSB
-||-|-|8|00-??|EFX2 Tone LSB
-||-|-|13|00-??|EFX1 Decay MSB
-||-|-|14|00-??|EFX1 Decay LSB
-||-|-|15|00-??|EFX2 Decay MSB
-||-|-|16|00-??|EFX2 Decay LSB
-||80|0x50|?|
-||-|-|5|-|FX1 MUTE
-||-|-|9|-|FX1 SOLO
-||-|-|c+1|-|FX1 FADER
-||-|-|6|-|FX2 MUTE
-||-|-|10|-|FX2 SOLO
-||-|-|d+1|-|FX2 FADER
-|To-validate|81|0x51|?|
-|To-validate|82|0x52|?|
-||83|0x53|1-6|00-78|VOLUME MONITOR A-F
-||84|0x54|8|x|SOLO CLEAR|?
-||-|-|-|-|03 cleared|?
-||-|-|9|x|Master selection button
-||-|-|-|-|02 REC
-||-|-|-|-|01 PLAY|?
-||-|-|-|-|00 Disabled|?
-||-|-|10|x|MASTER MUTE
-||-|-|-|-|01
-||-|-|-|-|00
-||-|-|11|00-78|MASTER FADER|-|-|
-||85|0x55|1|00-60|GLOBAL EQ 25Hz
-||-|-|2|00-60|GLOBAL EQ 40Hz
-||-|-|3|00-60|GLOBAL EQ 63Hz
-||-|-|4|00-60|GLOBAL EQ 100Hz
-||-|-|5|00-60|GLOBAL EQ 160Hz
-||-|-|6|00-60|GLOBAL EQ 250Hz
-||-|-|7|00-60|GLOBAL EQ 400Hz
-||-|-|8|00-60|GLOBAL EQ 630Hz
-||-|-|9|00-60|GLOBAL EQ 1kHz
-||-|-|10|00-60|GLOBAL EQ 1.6kHz
-||-|-|11|00-60|GLOBAL EQ 2.5kHz
-||-|-|12|00-60|GLOBAL EQ 4kHz
-||-|-|13|00-60|GLOBAL EQ 6.3kHz
-||-|-|14|00-60|GLOBAL EQ 10kHz
-||-|-|15|00-60|GLOBAL EQ 16kHz
-||-|-|16|01|GLOBAL EQ ON/OFF
-|To-validate|86|0x56|\*|SCENE[...]|?|
-||86|0x56|9|00-01|Scene on/off
-|To-validate|87|0x57|\*|SCENE[...]|?|
-||87|0x57|6|00-06|Fader Mode M-F
-||-|-|9||LED PLAY PAUSE
-||-|-|10|x|REC
-||-|-|-|-|...
-||-|-|11|x|PLAY PAUSE
-||-|-|-|-|03
-||-|-|12|x|STOP
-||-|-|-|-|03
-||-|-|13|x|REWIND
-||-|-|-|-|03
-||-|-|14|x|FAST FORWARD
-||-|-|-|-|03
-||-|-|15|x|OVERDUB
-||-|-|-|-|03
-||-|-|16|??-??|???
-||88|0x59|\*|-|TIME|
-||-|-|1|00-??|Marker
-||-|-|5|00-99|Song hh..
-||-|-|6|00-99|Sont ..hh
-||-|-|7|00-59|Song mm
-||-|-|8|00-59|Song ss
-||-|-|9|00-99|Cur hh..
-||-|-|10|00-99|Cur ..hh
-||-|-|11|00-59|Cur mm
-||-|-|12|00-59|Cur ss
+*Work In Progress*
+Dec|Hex|Channel|Name|TX|RX|Comment
+---|---|---|---|---|---|---
+4  |0x04|0, 2|USB 1-2, USB3-4|0,1|1|0 = Input, 1 = Usb
+8  |0x08|1-16|REC/PLAY|0,1,2|1|0 = Disabled, 1 = Play, 2 = Rec
+9  |0x09|1, 3|-|-|-|*17\_18, 19\_20*
+10 |0x0A|1-16|PHASE|0,1|1|0 = Normal, 1 = Inverted
+11 |0x0B|1, 3|-|-|-|*17\_18, 19\_20*
+12 |0x0C|1-16|PAN|00-??|00-??|?? = Center
+13 |0x0D|1, 3|-|-|-|*17\_18, 19\_20*
+14 |0x0E|1-16|EQ ON/OFF|0,1|1|0 = On, 1 = Off
+15 |0x0F|1, 3|-|-|-|*17\_18, 19\_20*
+20 |0x14|1-16|EQ HIGH|00-78|00-78|?? = 0
+21 |0x15|1, 3|-|-|-|*17\_18, 19\_20*
+24 |0x18|1-16|EQ MID FREQ|00-78|00-78|?? = 0
+25 |0x19|1, 3|-|-|-|*17\_18, 19\_20*
+26 |0x1A|1-16|EQ MID|00-78|00-78|?? = 0
+27 |0x1B|1, 3|-|-|-|*17\_18, 19\_20*
+44 |0x2C|1-16|EQ LOW|00-78|00-78|?? = 0
+45 |0x2D|1, 3|-|-|-|*17\_18, 19\_20*
+46 |0x2E|1-16|EQ LOCUT|00-78|00-78|?? = 0
+47 |0x2F|1, 3|-|-|-|*17\_18, 19\_20*
+48 |0x30|1-16|MUTE|0,1|1|0 = Off, 1 = On
+49 |0x31|1, 3|-|-|-|*17\_18, 19\_20*
+50 |0x32|1-16|SOLO|0,1|1|0 = Off, 1 = On
+51 |0x33|1, 3|-|-|-|*17\_18, 19\_20*
+52 |0x34|1-16|SEND FX1|00-78|00-78|?? = 0
+53 |0x35|1, 3|-|-|-|*17\_18, 19\_20*
+54 |0x36|1-16|SEND FX2|00-78|00-78||
+55 |0x37|1, 3|-|-|-|*17\_18, 19\_20*
+60 |0x3C|1-16|FADER MIX MASTER|00-78|00-78|52 = 0dB
+61 |0x3D|1, 3|-|-|-|*17\_18, 19\_20*
+62 |0x3E|1-16|FADER MIX A|00-78|00-78
+63 |0x3F|1, 3|-|-|-|*17\_18, 19\_20*
+64 |0x40|1-16|FADER MIX B|00-78|00-78|
+65 |0x41|1, 3|-|-|-|*17\_18, 19\_20*
+66 |0x42|1-16|FADER MIX C|00-78|00-78|
+67 |0x43|1, 3|-|-|-|*17\_18, 19\_20*
+68 |0x44|1-16|FADER MIX D|00-78|00-78|
+69 |0x45|1, 3|-|-|-|*17\_18, 19\_20*
+70 |0x46|1-16|FADER MIX E|00-78|00-78|
+71 |0x47|1, 3|-|-|-|*17\_18, 19\_20*
+72 |0x48|1-16|FADER MIX F|00-78|00-78|
+73 |0x3E|1, 3|-|-|-|*17\_18, 19\_20*
+78 |0x4E|1|EFX1 Type|00-09|00-09|
+-|-|2|EFX2 Type|00-09|00-09|
+-|-|5|EFX1 Tone MSB|00-64|00-64
+-|-|6|EFX1 Tone LSB|00-64|00-64
+-|-|7|EFX2 Tone MSB|00-??|00-??
+-|-|8|EFX2 Tone LSB|00-??|00-??
+-|-|13|EFX1 Decay MSB|00-??|00-??
+-|-|14|EFX1 Decay LSB|00-??|00-??
+-|-|15|EFX2 Decay MSB|00-??|00-??
+-|-|16|EFX2 Decay LSB|00-??|00-??
+80|0x50|?|
+-|-|5|FX1 MUTE|0,1|1|0 = Off, 1 = On
+-|-|6|FX2 MUTE|0,1|1|0 = Off, 1 = On
+-|-|9|FX1 SOLO|0,1|1|0 = Off, 1 = On
+-|-|10|FX2 SOLO|0,1|1|0 = Off, 1 = On
+-|-|c+1|FX1 FADER|00-78|00-78|52 = 0dB
+-|-|d+1|FX2 FADER|00-78|00-78|52 = 0dB
+83|0x53|1-6|VOLUME MONITOR A-F|00-78|00-78|52 = 0dB
+84|0x54|9|Master selection button|1,2|1|1 = Play, 2 = Rec
+-|-|10|MASTER MUTE|0,1|1|0 = Off, 1 = On
+-|-|11|MASTER FADER|00-78|00-78|52 = 0dB
+85|0x55|1|GLOBAL EQ 25Hz|00-60|00-60|
+-|-|2|GLOBAL EQ 40Hz|00-60|00-60|
+-|-|3|GLOBAL EQ 63Hz|00-60|00-60|
+-|-|4|GLOBAL EQ 100Hz|00-60|00-60|
+-|-|5|GLOBAL EQ 160Hz|00-60|00-60|
+-|-|6|GLOBAL EQ 250Hz|00-60|00-60|
+-|-|7|GLOBAL EQ 400Hz|00-60|00-60|
+-|-|8|GLOBAL EQ 630Hz|00-60|00-60|
+-|-|9|GLOBAL EQ 1kHz|00-60|00-60|
+-|-|10|GLOBAL EQ 1.6kHz|00-60|00-60|
+-|-|11|GLOBAL EQ 2.5kHz|00-60|00-60|
+-|-|12|GLOBAL EQ 4kHz|00-60|00-60|
+-|-|13|GLOBAL EQ 6.3kHz|00-60|00-60|
+-|-|14|GLOBAL EQ 10kHz|00-60|00-60|
+-|-|15|GLOBAL EQ 16kHz|00-60|00-60|
+-|-|16|GLOBAL EQ ON/OFF|0,1|1|0 = Off, 1 = On
+86|0x56|9|Scene on/off|0,1|1|0 = Off, 1 = On
+87|0x57|6|Fader Mode M-F|0-6|0-6| Select Mix for VU Meter
+-|-|9|LED PLAY PAUSE|?|x|
+-|-|10|REC|?|?|
+-|-|11|PLAY PAUSE|?|?|
+-|-|12|STOP|?|?|
+-|-|13|REWIND|?|?|
+-|-|14|FAST FORWARD|?|?|
+-|-|15|OVERDUB|?|?|
+88|0x59|1|Marker|0-??|x|
+-|-|5|Song HH..|0-99|x| HHhh:mm:ss
+-|-|6|Sont ..hh|0-99|x|
+-|-|7|Song mm|0-59|x|
+-|-|8|Song ss|0-59|x|
+-|-|9|Current HH..|0-99|x| HHhh:mm:ss
+-|-|10|Current ..hh|0-99|x|
+-|-|11|Current mm|0-59|x|
+-|-|12|Current ss|0-59|x|
 
 ## SysEx
-WIP
-||SysEx|M.ID Zoom|L-20r|Command|Data|End|Comment|
-|-|-----|---------|-----|-------|----|---|-------|
-||F0|52 00 00|31|XX|...|F7|Generic|
-||F0|7E 00 06|01|||F7|Universal MIDI Ident ;To|
-||F0|7E 00 06|02|52|72 00 03 00 31 2E 31 33|F7|52:Zoom 0x312E3133:1.13 ;From|
-||F0|52 00 00|2B|XX||F7|Ask Channel Names ;To|
-||F0|52 00 00|2A|08|05 00 00 ...|F7|Channel Names ;From|
-||F0|52 00 00|07|00-02|...|F7|Ask Scene names ;To|
-||F0|52 00 00|06|00-02|...|F7|Scene names ;From|
-||F0|52 00 00|50|||F7|Monitor Volumes|
-||F0|52 00 00||||F7|Received VU meter; M-F;PRE;POST;MASTER|
-||F0|52 00 00|51|||F7|Stop Monitor Volumes|
+*Work In Progress*
+### SysEx message
+TX / RX|Start|Manufacturer ID|Device ID|Command|Data|End|Comment|
+---|---|---|---|---|---|---|---|---|---|
+-|F0|52 00 00|31|xx|xx..xx|F7
+-|-|*Zoom*|*L20r*|-|-|-
+RX|F0|7E 00 06|01|-|-|F7|Universal MIDI Ident
+TX|F0|7E 00 06|02|52|72 00 03 00 31 2E 31 33|F7|
+-|-|-|-|*Zoom*|72 00 03 00 *L20r* 2E *1.13*|-|
 
-WIP
-||Command|Name|Comment|||
-|-|-------|----|-------|-|-|
-||02|Change Name
-||-|01-12|Tranche
-||-|-|09 00|?
-||-|-|-|XX XX XX XX XX XX XX XX|ASCII Chars
-||03|Change Color
-||-|01-12|Tranche
-||-|-|00-07|Color
-||04|VU meters
-||-|00-06|Chan Select M-F
-||-|-|00..00| Meter values PRE
-||-|-|00..00| Meter values POST
-||-|-|00 00| Meter values MASTER
+*Work In Progress*
+### Command
+TX / RX|Command|Data|Name|Comment|
+---|---|---|---|---|---|---|---|---|---|
+RX|2B|-|Ask Channel Names
+TX|2A|05 00 00 ...|Channel Names
+RX|07|-|Ask Scene names
+TX|06|00-02 ...|Scene names
+RX|50|-|Start Monitoring Volumes
+RX|51|-|Stop Monitor Volumes
+
+### Data
+Offset|Name|Values|Size|Type|
+---|
+0|Change Name|02|1
+1|Tranche|01-12|1
+2|ASCII Chars|XX XX XX XX XX XX XX XX|8|
+
+Offset|Name|Values|Size|Type|
+---|---|---
+0|Change Color|03|1
+1|Tranche|01-12|1
+2|Color|00-07|1
+
+Offset|Name|Values|Size|Type|
+---|---|---
+0|VU meters|04|1
+1|Chan M-F|00-06|1
+2|Meter values PRE|00..00|20
+22|Meter values POST|00..00|20
+42|Meter values MASTER| 00 00 |2
 
