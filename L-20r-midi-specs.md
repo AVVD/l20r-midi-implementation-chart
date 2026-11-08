@@ -139,6 +139,7 @@ WIP
 ||F0|52 00 00|07|00-02|...|F7|Ask Scene names ;To|
 ||F0|52 00 00|06|00-02|...|F7|Scene names ;From|
 ||F0|52 00 00|50|||F7|Monitor Volumes|
+||F0|52 00 00||||F7|Received VU meter; M-F;PRE;POST;MASTER|
 ||F0|52 00 00|51|||F7|Stop Monitor Volumes|
 
 WIP
