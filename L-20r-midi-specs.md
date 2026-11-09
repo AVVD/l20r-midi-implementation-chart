@@ -104,18 +104,18 @@ Dec|Hex|Channel|Name|TX|RX|Comment
 ## SysEx
 *Work In Progress*
 ### SysEx message
-TX / RX|Start|Manufacturer ID|Device ID|Command|Data|End|Comment|
+TX \/ RX|Start|Manufacturer ID|Device ID|Command|Data|End|Comment|
 ---|---|---|---|---|---|---|---|---|---|
--|F0|52 00 00|31|xx|xx..xx|F7
+-|F0|52 00 00|31|xx|xx..xx|F7|Generic
 -|-|*Zoom*|*L20r*|-|-|-
 RX|F0|7E 00 06|01|-|-|F7|Universal MIDI Ident
-TX|F0|7E 00 06|02|52|72 00 03 00 31 2E 31 33|F7|
+TX|F0|7E 00 06|02|52|72 00 03 00 31 2E 31 33|F7|UMI Reply
 -|-|-|-|*Zoom*|72 00 03 00 *L20r* 2E *1.13*|-|
 
 *Work In Progress*
 ### Command
-TX / RX|Command|Data|Name|Comment|
----|---|---|---|---|---|---|---|---|---|
+TX \/ RX|Command|Data|Name|Comment
+---|---|---|---|---
 RX|2B|-|Ask Channel Names
 TX|2A|05 00 00 ...|Channel Names
 RX|07|-|Ask Scene names
@@ -124,20 +124,20 @@ RX|50|-|Start Monitoring Volumes
 RX|51|-|Stop Monitor Volumes
 
 ### Data
-Offset|Name|Values|Size|Type|
----|
+Offset|Name|Values|Size|Type
+---|---|---|---|---
 0|Change Name|02|1
 1|Tranche|01-12|1
 2|ASCII Chars|XX XX XX XX XX XX XX XX|8|
 
-Offset|Name|Values|Size|Type|
----|---|---
+Offset|Name|Values|Size|Type
+---|---|---|---|---
 0|Change Color|03|1
 1|Tranche|01-12|1
 2|Color|00-07|1
 
-Offset|Name|Values|Size|Type|
----|---|---
+Offset|Name|Values|Size|Type
+---|---|---|---|---
 0|VU meters|04|1
 1|Chan M-F|00-06|1
 2|Meter values PRE|00..00|20
